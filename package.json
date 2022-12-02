@@ -1,6 +1,6 @@
 {
   "name": "linux-screen-wrapper",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A wrapper for the Linux screen command",
   "author": "CyberGen49",
   "license": "ISC",
@@ -27,5 +27,11 @@
   "bugs": {
     "url": "https://github.com/CyberGen49/screen/issues"
   },
-  "homepage": "https://github.com/CyberGen49/screen#readme"
+  "homepage": "https://github.com/CyberGen49/screen#readme",
+  "keywords": [
+    "linux",
+    "screen",
+    "command",
+    "wrapper"
+  ]
 }
