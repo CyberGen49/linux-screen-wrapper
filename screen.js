@@ -14,7 +14,7 @@ function centerText(text, length) {
     return `${' '.repeat(left)}${text}${' '.repeat(right)}`;
 }
 
-function run(command) {
+function run(command = '') {
     fs.writeFileSync('/tmp/screen-wrapper-exec', command, { mode: 0777 });
     process.exit();
 }
@@ -81,17 +81,17 @@ switch (process.argv[2]) {
                 );
             }
         }
-        process.exit();
+        run();
     case 'r':
         if (!process.argv[3]) {
             console.log(clc.redBright(`Provide a session name or PID.`));
-            process.exit();
+            run();
         }
         const filter = new Fuse(sessions, { keys: [ 'name', 'pid' ] });
         const results = filter.search(process.argv[3]);
         if (results.length == 0) {
             console.log(clc.redBright(`No session was found matching that name or PID.`));
-            process.exit();
+            run();
         }
         const result = results[0].item;
         console.log(clc.cyanBright(`Resuming screen session`), clc.whiteBright(result.name), clc.cyanBright(`with PID`), clc.yellowBright(result.pid));
@@ -99,12 +99,12 @@ switch (process.argv[2]) {
     case 'c':
         if (!process.argv[3]) {
             console.log(clc.redBright(`Give this session a name.`));
-            process.exit();
+            run();
         }
         const name = process.argv[3].trim();
         if (sessionNames.includes(name)) {
             console.log(clc.redBright(`That session name is already in use.`));
-            process.exit();
+            run();
         }
         console.log(clc.cyanBright(`Creating screen session`), clc.whiteBright(name));
         run(`screen -S "${name}"`);
@@ -125,5 +125,5 @@ switch (process.argv[2]) {
             clc.whiteBright(`Creates a session using the provided name`)
         );
         console.log();
-        process.exit();
+        run();
 }
