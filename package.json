@@ -1,6 +1,6 @@
 {
   "name": "linux-screen-wrapper",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A wrapper for the Linux screen command",
   "author": "CyberGen49",
   "license": "ISC",
