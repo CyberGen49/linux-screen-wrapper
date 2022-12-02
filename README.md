@@ -10,4 +10,13 @@ npm i -g linux-screen-wrapper
 ```
 
 ## Usage
-Ti view command usage, enter `s` in your terminal once the package is installed.
+Once the package is installed, the `s` command is made available.
+
+### `s ls`
+Prints a list of all running screen sessions, including each session's PID, name, start date and time, and attached/detached status.
+
+### `s r <name|PID>`
+Attaches a screen session by its `name` or `PID` using screen's `-x` flag. This allows for a screen to be attached to multiple terminals at a time, as opposed to `-r`'s single-terminal limitation.
+
+### `s c <name>`
+Creates a new screen session with the given `name`. Equivalent to `screen -S name`.

@@ -1,6 +1,6 @@
 {
   "name": "linux-screen-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A wrapper for the Linux screen command",
   "author": "CyberGen49",
   "license": "ISC",
@@ -15,5 +15,17 @@
     "dayjs": "^1.11.6",
     "fuse.js": "^6.6.2",
     "shelljs": "^0.8.5"
-  }
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CyberGen49/screen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/CyberGen49/screen/issues"
+  },
+  "homepage": "https://github.com/CyberGen49/screen#readme"
 }
