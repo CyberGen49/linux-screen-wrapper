@@ -1,0 +1,19 @@
+{
+  "name": "linux-screen-wrapper",
+  "version": "1.0.0",
+  "description": "A wrapper for the Linux screen command",
+  "author": "CyberGen49",
+  "license": "ISC",
+  "main": "default.js",
+  "preferGlobal": true,
+  "bin": {
+    "screen-wrapper-source": "screen.js",
+    "s": "screen.sh"
+  },
+  "dependencies": {
+    "cli-color": "^2.0.3",
+    "dayjs": "^1.11.6",
+    "fuse.js": "^6.6.2",
+    "shelljs": "^0.8.5"
+  }
+}
