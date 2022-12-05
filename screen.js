@@ -15,7 +15,7 @@ function centerText(text, length) {
 }
 
 function run(command = '') {
-    fs.writeFileSync('/tmp/screen-wrapper-exec', command, { mode: 0777 });
+    fs.writeFileSync('~/screen-wrapper-exec', command, { mode: 0777 });
     process.exit();
 }
 
