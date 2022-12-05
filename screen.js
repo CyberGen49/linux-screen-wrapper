@@ -1,6 +1,8 @@
 #!/usr/bin/node
 
 const fs = require('fs');
+const os = require('os');
+const path = require('path');
 const shell = require('shelljs');
 const clc = require('cli-color');
 const dayjs = require('dayjs');
@@ -15,7 +17,7 @@ function centerText(text, length) {
 }
 
 function run(command = '') {
-    fs.writeFileSync('~/screen-wrapper-exec', command, { mode: 0777 });
+    fs.writeFileSync(path.join(os.homedir(), 'screen-wrapper-exec'), command, { mode: 0777 });
     process.exit();
 }
 
