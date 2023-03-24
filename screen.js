@@ -97,7 +97,7 @@ switch (process.argv[2]) {
         }
         const result = results[0].item;
         console.log(clc.cyanBright(`Resuming screen session`), clc.whiteBright(result.name), clc.cyanBright(`with PID`), clc.yellowBright(result.pid));
-        run(`screen -x ${result.pid}`);
+        run(`screen -dr ${result.pid}`);
     case 'c':
         if (!process.argv[3]) {
             console.log(clc.redBright(`Give this session a name.`));
@@ -112,7 +112,6 @@ switch (process.argv[2]) {
         run(`screen -S "${name}"`);
     default:
         console.log();
-        //console.log(clc.cyanBright(`linux-screen-wrapper Command Help`));
         console.log(
             clc.green(`s ls`), '          ',
             clc.whiteBright(`Lists all running sessions`)
