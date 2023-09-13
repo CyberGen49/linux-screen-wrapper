@@ -57,7 +57,7 @@ switch (process.argv[2]) {
             return b.pm2_env.pm_uptime-a.pm2_env.pm_uptime;
         });
         const lengths = {
-            id: 3,
+            id: 5,
             name: 16,
             time: 10,
             status: 8
