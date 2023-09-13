@@ -1,7 +1,7 @@
 {
   "name": "linux-screen-wrapper",
-  "version": "1.1.3",
-  "description": "A wrapper for the Linux screen command",
+  "version": "1.2.0",
+  "description": "A wrapper for the Linux screen and Node pm2 commands",
   "author": "CyberGen49",
   "license": "ISC",
   "main": "default.js",
@@ -14,9 +14,9 @@
     "cli-color": "^2.0.3",
     "dayjs": "^1.11.6",
     "fuse.js": "^6.6.2",
-    "shelljs": "^0.8.5"
+    "shelljs": "^0.8.5",
+    "web-resources": "^2.3.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
