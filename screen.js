@@ -17,6 +17,10 @@ function centerText(text, length) {
     return `${' '.repeat(left)}${text}${' '.repeat(right)}`;
 }
 
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase()+string.slice(1);
+}
+
 function run(command = '') {
     fs.writeFileSync(path.join(os.homedir(), 'screen-wrapper-exec'), command, { mode: 777 });
     process.exit();
@@ -81,11 +85,12 @@ switch (process.argv[2]) {
             names.status.padEnd(lengths.status)
         ));
         for (const process of data) {
+            process.pm2_env.status = capitalizeFirstLetter(process.pm2_env.status);
             console.log(
                 clc.yellowBright(`${process.pm2_env.pm_id}`.padStart(lengths.id)),
                 clc.whiteBright(process.name.padEnd(lengths.name)),
                 clc.white(utils.getRelativeDate(new Date(process.pm2_env.pm_uptime).getTime()).replace(' ago', '').padEnd(lengths.time)),
-                (process.pm2_env.status == 'online')
+                (process.pm2_env.status == 'Online')
                     ? clc.greenBright(process.pm2_env.status)
                     : clc.redBright(process.pm2_env.status)
             );

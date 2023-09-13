@@ -1,6 +1,6 @@
 {
   "name": "linux-screen-wrapper",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "A wrapper for the Linux screen and Node pm2 commands",
   "author": "CyberGen49",
   "license": "ISC",
