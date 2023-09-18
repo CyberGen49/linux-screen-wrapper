@@ -22,7 +22,7 @@ function capitalizeFirstLetter(string) {
 }
 
 function run(command = '') {
-    fs.writeFileSync(path.join(os.homedir(), 'screen-wrapper-exec'), command, { mode: 777 });
+    fs.writeFileSync(path.join(os.homedir(), 'screen-wrapper-exec'), command, { mode: 0o777 });
     process.exit();
 }
 
@@ -95,6 +95,7 @@ switch (process.argv[2]) {
                     : clc.redBright(process.pm2_env.status)
             );
         }
+        run();
         break;
     }
     case 'ls':
@@ -138,6 +139,7 @@ switch (process.argv[2]) {
                 );
             }
         }
+        run();
         break;
     case 'r':
         if (!process.argv[3]) {
