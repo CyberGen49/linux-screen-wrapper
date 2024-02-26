@@ -1,4 +1,6 @@
 #!/bin/bash
 screen-wrapper-source "$@"
-~/screen-wrapper-exec
-rm -rf ~/screen-wrapper-exec 2>/dev/null
+if [ -f ~/screen-wrapper-exec ]; then
+  ~/screen-wrapper-exec
+  rm -f ~/screen-wrapper-exec
+fi
