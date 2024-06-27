@@ -5,9 +5,7 @@ const os = require('os');
 const path = require('path');
 const shell = require('shelljs');
 const clc = require('cli-color');
-const dayjs = require('dayjs');
 const Fuse = require('fuse.js');
-const utils = require('web-resources');
 
 function centerText(text, length) {
     if (text.length > length) return text;
@@ -19,6 +17,20 @@ function centerText(text, length) {
 
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase()+string.slice(1);
+}
+
+function getRelativeDate(ts) {
+    // Return a formatted amount of time between now and ts
+    const now = Date.now();
+    const diff = Math.abs(now-ts);
+    const seconds = Math.floor(diff/1000);
+    const minutes = Math.floor(seconds/60);
+    const hours = Math.floor(minutes/60);
+    const days = Math.floor(hours/24);
+    if (seconds < 120) return `${seconds} secs`;
+    if (minutes < 120) return `${minutes} mins`;
+    if (hours < 48) return `${hours} hours`;
+    return `${days} days`;
 }
 
 function run(command = '') {
@@ -89,7 +101,7 @@ switch (process.argv[2]) {
             console.log(
                 clc.yellowBright(`${process.pm2_env.pm_id}`.padStart(lengths.id)),
                 clc.whiteBright(process.name.padEnd(lengths.name)),
-                clc.white(utils.getRelativeDate(new Date(process.pm2_env.pm_uptime).getTime()).replace(' ago', '').padEnd(lengths.time)),
+                clc.white(getRelativeDate(new Date(process.pm2_env.pm_uptime).getTime()).replace(' ago', '').padEnd(lengths.time)),
                 (process.pm2_env.status == 'Online')
                     ? clc.greenBright(process.pm2_env.status)
                     : clc.redBright(process.pm2_env.status)
@@ -132,7 +144,7 @@ switch (process.argv[2]) {
                 console.log(
                     clc.yellowBright(session.pid.padStart(lengths.pid)),
                     clc.whiteBright(session.name.padEnd(lengths.name)),
-                    clc.white(utils.getRelativeDate(new Date(session.time).getTime()).replace(' ago', '').padEnd(lengths.time)),
+                    clc.white(getRelativeDate(new Date(session.time).getTime()).replace(' ago', '').padEnd(lengths.time)),
                     (session.isAttached)
                         ? clc.greenBright('Attached')
                         : clc.redBright('Detached')
